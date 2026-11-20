@@ -1,26 +1,99 @@
+/* app/globals.css — Rajawali Poultry & Pet Store */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Brand palette */
+  --color-primary: #B72226;
+  --color-maroon: #861D22;
+  --color-warmwhite: #FAF8F5;
+  --color-rosebeige: #E9DAD5;
+  --color-charcoal: #292725;
+  --color-muted: #7E7873;
+  --color-warmborder: #E8E4DF;
+
+  /* Theme aliases for component styling */
+  --color-brand-red: #B72226;
+  --color-brand-maroon: #861D22;
+  --color-brand-beige: #E9DAD5;
+  --color-brand-charcoal: #292725;
+
+  /* Typography */
+  --font-sans: "Inter", "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base ─────────────────────────────────────────────────── */
+:root {
+  --background: #FAF8F5;
+  --foreground: #292725;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* ── Focus rings ──────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #B72226;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Custom scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #FAF8F5; }
+::-webkit-scrollbar-thumb { background: #E9DAD5; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #B72226; }
+
+/* ── Transition defaults ──────────────────────────────────── */
+* {
+  transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: 150ms;
+}
+
+/* ── Line clamp utility ───────────────────────────────────── */
+.line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.line-clamp-3 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+
+/* ── Product image placeholder ────────────────────────────── */
+.product-img-placeholder {
+  background: linear-gradient(135deg, #FAF8F5 0%, #E9DAD5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Announcement bar animation ───────────────────────────── */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 30s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ── Toast slide-in ───────────────────────────────────────── */
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(16px) scale(.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.toast-enter { animation: toast-in .25s ease forwards; }
+
+/* ── Cart drawer slide ────────────────────────────────────── */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+@keyframes slide-out-right {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
+}
+.drawer-open  { animation: slide-in-right  .3s cubic-bezier(.4,0,.2,1) forwards; }
+.drawer-close { animation: slide-out-right .25s cubic-bezier(.4,0,.2,1) forwards; }

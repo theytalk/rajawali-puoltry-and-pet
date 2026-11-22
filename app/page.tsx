@@ -6,6 +6,7 @@ import { PRODUCT_CATEGORIES } from "@/lib/types";
 import { CategoryCard } from "@/components/CategoryCard";
 import { ProductCard } from "@/components/ProductCard";
 import { WhatsAppOrderButton } from "@/components/WhatsAppOrderButton";
+import { ReviewsSection } from "@/components/ReviewsSection";
 import { WHATSAPP_URL } from "@/lib/config";
 
 const WHY_CHOOSE_US = [
@@ -204,6 +205,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── GOOGLE CUSTOMER REVIEWS ────────────────────────── */}
+      <ReviewsSection />
 
       {/* ── WHATSAPP CTA ───────────────────────────────────── */}
       <section className="py-16 bg-white">

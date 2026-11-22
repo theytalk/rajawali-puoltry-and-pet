@@ -12,7 +12,7 @@ export const SITE_CONFIG = {
   instagram: "https://www.instagram.com/rajawali.poultrypet/",
   googleMaps: "https://maps.google.com/?q=Dunia+Unggas+Lubuk+Begalung+Padang", // Update with actual pin URL from store owner
   address: "Dunia Unggas & Dunia Pet Care Shop, Lubuk Begalung, Padang, West Sumatra, Indonesia",
-  email: "info@rajawalipoultrypet.com", // Placeholder — update if confirmed
+  email: "test123@gmail.com", // Placeholder — update if confirmed
 };
 
 // ============================================================

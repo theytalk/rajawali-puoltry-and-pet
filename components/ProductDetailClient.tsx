@@ -241,7 +241,7 @@ export function ProductDetailClient({ slug }: ProductDetailClientProps) {
               Lihat semua →
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 min-[360px]:gap-3 sm:gap-4">
             {related.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}

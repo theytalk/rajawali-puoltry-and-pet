@@ -21,7 +21,7 @@ export function ProductGrid({ products, emptyMessage = "Produk tidak ditemukan."
   }
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 min-[360px]:gap-3 sm:gap-4 lg:gap-5">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}

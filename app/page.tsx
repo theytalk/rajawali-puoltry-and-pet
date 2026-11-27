@@ -107,9 +107,8 @@ export default function HomePage() {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`${
-                  i % 2 === 0 ? "bg-white/10" : "bg-[#E9DAD5]/15"
-                } backdrop-blur-sm border border-white/20 rounded-2xl p-5 sm:p-6 flex flex-col items-center justify-center text-center gap-3 hover:bg-white/20 hover:border-white/40 transition-all duration-300 group`}
+                className={`${i % 2 === 0 ? "bg-white/10" : "bg-[#E9DAD5]/15"
+                  } backdrop-blur-sm border border-white/20 rounded-2xl p-5 sm:p-6 flex flex-col items-center justify-center text-center gap-3 hover:bg-white/20 hover:border-white/40 transition-all duration-300 group`}
               >
                 <img
                   src={item.icon}
@@ -157,7 +156,7 @@ export default function HomePage() {
               Lihat Semua <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 min-[360px]:gap-3 sm:gap-4 lg:gap-5">
             {FEATURED_PRODUCTS.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

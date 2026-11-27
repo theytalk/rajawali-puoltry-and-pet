@@ -69,11 +69,11 @@ export function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       {/* Info */}
-      <div className="flex flex-col flex-1 p-4">
-        <div className="flex items-center justify-between gap-2 mb-1.5">
-          <span className="text-xs text-[#7E7873] font-medium truncate">{product.brand}</span>
+      <div className="flex flex-col flex-1 p-2.5 min-[360px]:p-3 sm:p-4">
+        <div className="flex items-center justify-between gap-1.5 sm:gap-2 mb-1.5">
+          <span className="text-[11px] sm:text-xs text-[#7E7873] font-medium truncate">{product.brand}</span>
           <span
-            className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border whitespace-nowrap ${
+            className={`text-[9px] sm:text-[10px] font-semibold px-1.5 sm:px-2 py-0.5 rounded-full border whitespace-nowrap ${
               STOCK_COLORS[product.stock]
             }`}
           >
@@ -82,33 +82,33 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
 
         <Link href={`/product/${product.slug}`} className="flex-1">
-          <h3 className="text-sm font-semibold text-[#292725] leading-snug line-clamp-2 hover:text-[#B72226] transition-colors mb-1">
+          <h3 className="text-xs sm:text-sm font-semibold text-[#292725] leading-snug line-clamp-2 hover:text-[#B72226] transition-colors mb-1">
             {product.name}
           </h3>
         </Link>
 
-        <p className="text-[11px] text-[#7E7873] mb-2">{product.category}</p>
+        <p className="text-[10px] sm:text-[11px] text-[#7E7873] mb-1.5 truncate">{product.category}</p>
 
         {product.variants && product.variants.length > 0 && (
-          <p className="text-[11px] text-[#7E7873] mb-2">
+          <p className="text-[10px] sm:text-[11px] text-[#7E7873] mb-2 truncate">
             {product.variants[0].label} &amp; lainnya
           </p>
         )}
 
-        <div className="flex items-center justify-between mt-auto pt-3 border-t border-[#E8E4DF]/60">
-          <div>
-            <p className="text-base font-bold text-[#B72226]">
+        <div className="flex items-center justify-between gap-1.5 sm:gap-2 mt-auto pt-2.5 sm:pt-3 border-t border-[#E8E4DF]/60">
+          <div className="min-w-0 flex-1">
+            <p className="text-xs min-[360px]:text-[13px] sm:text-sm md:text-base font-bold text-[#B72226] leading-tight tracking-tight whitespace-nowrap">
               {formatRupiah(product.price)}
             </p>
             {product.weight && (
-              <p className="text-[10px] text-[#7E7873]">{product.weight}</p>
+              <p className="text-[10px] text-[#7E7873] mt-0.5 truncate leading-none">{product.weight}</p>
             )}
           </div>
 
           <button
             onClick={handleAddToCart}
             disabled={isOutOfStock}
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all ${
+            className={`shrink-0 flex items-center justify-center gap-1 sm:gap-1.5 px-2 min-[360px]:px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold transition-all ${
               isOutOfStock
                 ? "bg-[#E8E4DF] text-[#7E7873] cursor-not-allowed"
                 : added
@@ -118,11 +118,11 @@ export function ProductCard({ product }: ProductCardProps) {
             aria-label={`Tambah ${product.name} ke keranjang`}
           >
             {added ? (
-              <>✓ Ditambahkan</>
+              <span className="whitespace-nowrap">✓ <span className="hidden min-[380px]:inline">Ditambahkan</span></span>
             ) : (
               <>
-                <ShoppingCart className="w-3.5 h-3.5" />
-                {isOutOfStock ? "Habis" : "Tambah"}
+                <ShoppingCart className="w-3.5 h-3.5 shrink-0" />
+                <span className="whitespace-nowrap">{isOutOfStock ? "Habis" : "Tambah"}</span>
               </>
             )}
           </button>
